@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 
 vim.keymap.set("i", "\'", "\'\'<Left>")
 vim.keymap.set("i", "\"", "\"\"<Left>")
-vim.keymap.set("i", "<", "<><Left>")
+-- vim.keymap.set("i", "<", "<><Left>")
 vim.keymap.set("i", "{", "{}<Left>")
 vim.keymap.set("i", "[", "[]<Left>")
 vim.keymap.set("i", "(", "()<Left>")
