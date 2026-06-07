@@ -1,7 +1,7 @@
 {
   "model": "opus",
   "language": "Japanese",
-  "tui": "default",
+  "tui": "fullscreen",
   "theme": "dark-daltonized",
   "editorMode": "vim"
 }
