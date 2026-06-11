@@ -1,4 +1,4 @@
--- 有効化する言語サーバーの一覧（別途インストールが必要）
+-- 有効化する言語サーバーの一覧（:Mason でインストール）
 local servers = {
   "ts_ls",      -- typescript / javascript / tsx / jsx
   "clangd",     -- c / cpp
@@ -23,6 +23,11 @@ return {
         callback = function(args)
           local bufnr = args.buf
           local opts = { buffer = bufnr }
+          -- LSPによる自動補完を有効化（入力中に補完候補を自動表示）
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client and client:supports_method("textDocument/completion") then
+            vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
+          end
           -- コードジャンプ系
           vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)       -- 定義へジャンプ
           vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)      -- 宣言へジャンプ
@@ -52,10 +57,10 @@ return {
         severity_sort = true,      -- 重大度順にソート
       })
 
-      -- Goファイルは保存直前に自動フォーマット（goplsを使用）
+      -- Go / C / C++ ファイルは保存直前に自動フォーマット（gopls / clangd を使用）
       -- async=false にしないと保存処理に間に合わない
       vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = "*.go",
+        pattern = { "*.go", "*.c", "*.cpp", "*.cc", "*.h", "*.hpp" },
         callback = function()
           vim.lsp.buf.format({ async = false })
         end,
