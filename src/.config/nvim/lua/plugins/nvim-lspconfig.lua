@@ -13,6 +13,9 @@ return {
     -- ファイルを開くタイミングまでロードを遅延し、起動を高速化
     event = { "BufReadPre", "BufNewFile" },
     config = function()
+      -- 補完メニューの挙動: 候補1件でもメニュー表示・自動選択しない・ドキュメントをポップアップ表示・あいまい一致
+      vim.opt.completeopt = { "menuone", "noselect", "popup", "fuzzy" }
+
       -- 各言語サーバーを有効化（Neovim 0.11+ の新API）
       for _, server in ipairs(servers) do
         vim.lsp.enable(server)
