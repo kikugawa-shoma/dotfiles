@@ -1,7 +1,11 @@
 {
-  "model": "claude-fable-5[1m]",
+  "model": "opus",
   "language": "Japanese",
   "tui": "fullscreen",
   "theme": "dark-daltonized",
-  "editorMode": "vim"
+  "editorMode": "vim",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/user-scripts/statusline.py"
+  }
 }

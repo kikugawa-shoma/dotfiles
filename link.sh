@@ -45,6 +45,7 @@ safe_link "$DOTFILES_SRC_DIR/.claude/commands" ~/.claude/commands
 safe_link "$DOTFILES_SRC_DIR/.claude/hooks" ~/.claude/hooks
 safe_link "$DOTFILES_SRC_DIR/.claude/skills" ~/.claude/skills
 safe_link "$DOTFILES_SRC_DIR/.claude/settings.json" ~/.claude/settings.json
+safe_link "$DOTFILES_SRC_DIR/.claude/user-scripts" ~/.claude/user-scripts
 
 # nvim
 safe_link "$DOTFILES_SRC_DIR/.config/nvim" ~/.config/nvim
