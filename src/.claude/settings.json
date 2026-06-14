@@ -1,11 +1,12 @@
 {
   "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/user-scripts/statusline.py",
+    "refreshInterval":1
+  },
   "language": "Japanese",
   "tui": "fullscreen",
   "theme": "dark-daltonized",
-  "editorMode": "vim",
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/user-scripts/statusline.py"
-  }
+  "editorMode": "vim"
 }
