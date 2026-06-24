@@ -62,6 +62,7 @@ local function jump_back()
 end
 
 loader.setup()
+require("config.snippet_hint").setup(snippets)
 
 vim.keymap.set("i", "<Tab>", expand_or_jump, { desc = "スニペット展開 / 次のプレースホルダ" })
 vim.keymap.set({ "i", "s" }, "<S-Tab>", jump_back, { desc = "前のプレースホルダ" })
